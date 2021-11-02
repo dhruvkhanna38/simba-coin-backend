@@ -104,17 +104,17 @@ if os.environ.get('PEER') == 'True':
     except Exception as e:
         print(f'\n -- Error synchronizing: {e}')
 
-if os.environ.get('SEED_DATA') == 'True':
-    for i in range(10):
-        blockchain.add_block([
-            Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json(),
-            Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json()
-        ])
-
-    for i in range(3):
-        transaction_pool.set_transaction(
-            Transaction(Wallet(), Wallet().address, random.randint(2, 50))
-        )
+    
 
 if __name__ == '__main__':
-   app.run(threaded=True,port=PORT)
+        for i in range(10):
+            blockchain.add_block([
+                Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json(),
+                Transaction(Wallet(), Wallet().address, random.randint(2, 50)).to_json()
+            ])
+
+        for i in range(3):
+            transaction_pool.set_transaction(
+                Transaction(Wallet(), Wallet().address, random.randint(2, 50))
+            )
+        app.run(threaded=True,port=PORT)
