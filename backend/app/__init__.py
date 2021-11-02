@@ -95,7 +95,7 @@ PORT = ROOT_PORT
 if os.environ.get('PEER') == 'True':
     PORT = random.randint(5001, 6000)
 
-    result = requests.get(f'http://localhost:{ROOT_PORT}/blockchain')
+    result = requests.get(f"http://localhost:{ROOT_PORT}/blockchain")
     result_blockchain = Blockchain.from_json(result.json())
 
     try:
