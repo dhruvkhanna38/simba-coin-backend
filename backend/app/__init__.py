@@ -116,4 +116,5 @@ if os.environ.get('SEED_DATA') == 'True':
             Transaction(Wallet(), Wallet().address, random.randint(2, 50))
         )
 
-app.run(port=PORT)
+if __name__ == '__main__':
+   app.run(threaded=True,port=PORT)
